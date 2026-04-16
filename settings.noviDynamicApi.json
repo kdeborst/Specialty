@@ -1,0 +1,1812 @@
+{
+  "collections": [
+    {
+      "name": "Accounts",
+      "fields": [
+        {
+          "name": "accountId",
+          "type": "reference:users",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "displayName",
+          "type": "string",
+          "required": true,
+          "min": 5,
+          "max": 100
+        },
+        {
+          "name": "isoLastLoginDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoCreatedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "required": false,
+          "default": true
+        }
+      ],
+      "permissions": {
+        "GET": ["account_owner", "specialty_admin"],
+        "POST": ["anonymous"],
+        "PUT": ["account_owner", "business_admin", "specialty_admin"],
+        "DELETE": ["account_owner", "specialty_admin"]
+      }
+    },
+    {
+      "name": "Businesses",
+      "fields": [
+        {
+          "name": "businessId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "businessDomainNicheId",
+          "type": "reference:businessdomainniches",
+          "required": true
+        },
+        {
+          "name": "businessName",
+          "type": "string",
+          "required": true,
+          "min": 5,
+          "max": 255
+        },
+        {
+          "name": "businessLogo",
+          "type": "image",
+          "required": false
+        },
+        {
+          "name": "city",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 150
+        },
+        {
+          "name": "postalCode",
+          "type": "string",
+          "required": true,
+          "min": 4,
+          "max": 11
+        },
+        {
+          "name": "latitude",
+          "type": "number",
+          "required": false,
+          "min": 3,
+          "max": 12,
+          "default": -90.00000001
+        },
+        {
+          "name": "longitude",
+          "type": "number",
+          "required": false,
+          "min": 3,
+          "max": 13,
+          "default": -180.00000001
+        },
+        {
+          "name": "profileDescription",
+          "type": "string",
+          "required": true,
+          "min": 25,
+          "max": 500
+        },
+        {
+          "name": "publicContactEmail",
+          "type": "string",
+          "required": true,
+          "min": 5,
+          "max": 255
+        },
+        {
+          "name": "addressText",
+          "type": "string",
+          "required": true,
+          "min": 5,
+          "max": 255
+        },
+        {
+          "name": "complianceStatus",
+          "type": "string",
+          "required": false,
+          "min": 9,
+          "max": 20,
+          "default": "Incompliant"
+        },
+        {
+          "name": "isoCreatedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoPublishedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "business_admin",
+          "business_representative",
+          "buyer_account",
+          "anonymous"
+        ],
+        "POST": ["business_admin"],
+        "PUT": ["business_admin"],
+        "DELETE": ["business_admin", "specialty_admin"]
+      }
+    },
+    {
+      "name": "BusinessMembers",
+      "fields": [
+        {
+          "name": "businessMemberId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "businessId",
+          "type": "reference:businesses",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "type": "reference:accounts",
+          "required": true
+        },
+        {
+          "name": "memberRole",
+          "type": "string",
+          "required": true,
+          "min": 5,
+          "max": 30,
+          "default": "business_representative"
+        },
+        {
+          "name": "isPrimary",
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "isoCreatedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": ["business_admin", "business_representative", "specialty_admin"],
+        "POST": ["business_admin"],
+        "PUT": ["business_admin", "business_representative"],
+        "DELETE": ["business_admin", "specialty_admin"]
+      }
+    },
+    {
+      "name": "Configurations",
+      "fields": [
+        {
+          "name": "configId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "businessId",
+          "type": "reference:businesses",
+          "required": true
+        },
+        {
+          "name": "wizardAnswersJson",
+          "type": "string",
+          "required": false,
+          "min": 2,
+          "default": "{}"
+        },
+        {
+          "name": "wizardVersion",
+          "type": "string",
+          "required": false,
+          "min": 5,
+          "max": 30,
+          "default": "1.0.0"
+        },
+        {
+          "name": "wizardCompletedAt",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "enabledModules",
+          "type": "string",
+          "required": false,
+          "min": 0,
+          "max": 500,
+          "default": "[]"
+        },
+        {
+          "name": "enabledModulesJson",
+          "type": "string",
+          "required": false,
+          "min": 2,
+          "max": 500,
+          "default": "{}"
+        },
+        {
+          "name": "storeFrontConfigJson",
+          "type": "string",
+          "required": false,
+          "min": 2,
+          "max": 500,
+          "default": "{}"
+        },
+        {
+          "name": "provisioningStatus",
+          "type": "string",
+          "required": false,
+          "min": 4,
+          "max": 20,
+          "default": "Provisioning"
+        },
+        {
+          "name": "isPublished",
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        {
+          "name": "isoCreatedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": ["business_admin", "business_representative", "specialty_admin"],
+        "POST": ["business_admin"],
+        "PUT": ["business_admin"],
+        "DELETE": ["business_admin", "specialty_admin"]
+      }
+    },
+    {
+      "name": "Offers",
+      "fields": [
+        {
+          "name": "offerId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "businessId",
+          "type": "reference:businesses",
+          "required": true
+        },
+        {
+          "name": "businessOfferType",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 50
+        },
+        {
+          "name": "businessOfferTypeSnapshot",
+          "type": "string",
+          "required": false,
+          "min": 2,
+          "max": 255,
+          "default": "[]"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "min": 5,
+          "max": 100
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": true,
+          "min": 10,
+          "max": 200
+        },
+        {
+          "name": "priceAmountExcludingTax",
+          "type": "number",
+          "required": true,
+          "min": 0.01,
+          "max": 999999.99
+        },
+        {
+          "name": "priceTaxAmount",
+          "type": "number",
+          "required": true,
+          "min": 0,
+          "max": 999999.99
+        },
+        {
+          "name": "priceAmountIncludingTax",
+          "type": "number",
+          "required": true,
+          "min": 0.01,
+          "max": 999999.99
+        },
+        {
+          "name": "isoPriceCurrency",
+          "type": "string",
+          "required": true,
+          "min": 3,
+          "max": 3
+        },
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "mediaJson",
+          "type": "string",
+          "required": false,
+          "min": 2,
+          "max": 4000,
+          "default": "[]"
+        },
+        {
+          "name": "isBookable",
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "availabilityId",
+          "type": "reference:offeravailabilityrule",
+          "required": false
+        },
+        {
+          "name": "inventoryQuantity",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "default": 0
+        },
+        {
+          "name": "isoCreatedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "business_admin",
+          "business_representative",
+          "specialty_admin",
+          "buyer_account",
+          "anonymous"
+        ],
+        "POST": ["business_admin", "business_representative"],
+        "PUT": ["business_admin", "business_representative"],
+        "DELETE": ["business_admin", "specialty_admin"]
+      }
+    },
+    {
+      "name": "Transactions",
+      "fields": [
+        {
+          "name": "transactionId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "invoiceId",
+          "type": "reference:invoices",
+          "required": true
+        },
+        {
+          "name": "offerId",
+          "type": "reference:offers",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "required": true,
+          "min": 1
+        },
+        {
+          "name": "priceIsoCurrency",
+          "type": "string",
+          "required": true,
+          "min": 3,
+          "max": 3,
+          "default": "EUR"
+        },
+        {
+          "name": "totalAmountExcludingTax",
+          "type": "number",
+          "required": true,
+          "min": 0.01,
+          "max": 999999.99
+        },
+        {
+          "name": "totalTaxAmount",
+          "type": "number",
+          "required": true,
+          "min": 0,
+          "max": 999999.99
+        },
+        {
+          "name": "totalAmountIncludingTax",
+          "type": "number",
+          "required": true,
+          "min": 0.01,
+          "max": 999999.99
+        },
+        {
+          "name": "isoScheduledStartDate",
+          "type": "date",
+          "required": true,
+          "min": 8,
+          "max": 29
+        },
+        {
+          "name": "isoScheduledEndDate",
+          "type": "date",
+          "required": true,
+          "min": 8,
+          "max": 29
+        },
+        {
+          "name": "notes",
+          "type": "string",
+          "required": false,
+          "min": 0,
+          "max": 255,
+          "default": ""
+        },
+        {
+          "name": "isLocalAppointment",
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        {
+          "name": "shipmentStatus",
+          "type": "string",
+          "required": false,
+          "min": 0,
+          "max": 50,
+          "default": "Shipment Pending"
+        },
+        {
+          "name": "deliveryStatus",
+          "type": "string",
+          "required": false,
+          "min": 0,
+          "max": 50,
+          "default": "Delivery Pending"
+        },
+        {
+          "name": "paymentProvider",
+          "type": "string",
+          "required": false,
+          "min": 0,
+          "max": 50
+        },
+        {
+          "name": "paymentReceived",
+          "type": "boolean",
+          "required": true,
+          "default": false
+        },
+        {
+          "name": "businessTermsAndConditionsAccepted",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "isoCreatedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "business_admin",
+          "business_representative",
+          "buyer_account",
+          "anonymous"
+        ],
+        "POST": ["buyer_account", "anonymous"],
+        "PUT": ["business_admin", "business_representative", "buyer_account"],
+        "DELETE": ["business_admin", "specialty_admin"]
+      }
+    },
+    {
+      "name": "Invoices",
+      "fields": [
+        {
+          "name": "invoiceId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "buyerAccountId",
+          "type": "reference:accounts",
+          "required": true
+        },
+        {
+          "name": "buyerNotes",
+          "type": "string",
+          "required": false,
+          "min": 0,
+          "max": 255,
+          "default": ""
+        },
+        {
+          "name": "specialtyTermsAndConditionsAccepted",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "useCustomInvoiceAddress",
+          "type": "boolean",
+          "required": false,
+          "default": false
+        },
+        {
+          "name": "customInvoiceAddressText",
+          "type": "string",
+          "required": false,
+          "min": 0,
+          "max": 255,
+          "default": ""
+        },
+        {
+          "name": "isoCreatedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": ["business_admin", "business_representative", "buyer_account"],
+        "POST": ["buyer_account", "anonymous"],
+        "PUT": ["business_admin", "business_representative", "buyer_account"],
+        "DELETE": ["business_admin", "specialty_admin"]
+      }
+    },
+    {
+      "name": "Domains",
+      "fields": [
+        {
+          "name": "domainId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "domainName",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 100
+        },
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "isoCreatedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "specialty_admin",
+          "business_admin",
+          "business_representative",
+          "buyer_account",
+          "anonymous"
+        ],
+        "POST": ["specialty_admin"],
+        "PUT": ["specialty_admin"],
+        "DELETE": ["specialty_admin"]
+      }
+    },
+    {
+      "name": "DomainNiches",
+      "fields": [
+        {
+          "name": "DomainNicheId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "domainId",
+          "type": "reference:domains",
+          "required": true
+        },
+        {
+          "name": "domainNicheName",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 100
+        },
+        {
+          "name": "isoCreatedAt",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "specialty_admin",
+          "business_admin",
+          "business_representative",
+          "buyer_account",
+          "anonymous"
+        ],
+        "POST": ["specialty_admin"],
+        "PUT": ["specialty_admin"],
+        "DELETE": ["specialty_admin"]
+      }
+    },
+    {
+      "name": "BusinessDomainNiches",
+      "fields": [
+        {
+          "name": "businessDomainNicheId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "businessId",
+          "type": "reference:businesses",
+          "required": true
+        },
+        {
+          "name": "domainNicheId",
+          "type": "reference:domainniches",
+          "required": true
+        },
+        {
+          "name": "isoCreatedAt",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "specialty_admin",
+          "business_admin",
+          "business_representative",
+          "buyer_account",
+          "anonymous"
+        ],
+        "POST": ["specialty_admin"],
+        "PUT": ["specialty_admin", "business_admin"],
+        "DELETE": ["specialty_admin"]
+      }
+    },
+    {
+      "name": "OfferAvailabilityRule",
+      "fields": [
+        {
+          "name": "availabilityRuleId",
+          "type": "string",
+          "required": true,
+          "min": 36,
+          "max": 38
+        },
+        {
+          "name": "offerId",
+          "type": "reference:offers",
+          "required": true
+        },
+        {
+          "name": "localIso8601UtcTimeZoneCountryCode",
+          "type": "string",
+          "required": true,
+          "min": 2,
+          "max": 2
+        },
+        {
+          "name": "isoAvailabilityRuleStartDate",
+          "type": "date",
+          "required": true,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoAvailabilityRuleEndDate",
+          "type": "date",
+          "required": true,
+          "min": 8,
+          "max": 29
+        },
+        {
+          "name": "isoLocalUtcBusinessOpeningTime",
+          "type": "date",
+          "required": true,
+          "min": 8,
+          "max": 29
+        },
+        {
+          "name": "isoLocalUtcBusinessEndTime",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "0001-01-01T00:00:00Z"
+        },
+        {
+          "name": "isoLocalUtcBreakTimeStart",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "0001-01-01T00:00:00Z"
+        },
+        {
+          "name": "isoLocalUtcBreakTimeEnd",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "0001-01-01T00:00:00Z"
+        },
+        {
+          "name": "slotDurationInMinutes",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "default": 0
+        },
+        {
+          "name": "maxBookingsPerDay",
+          "type": "number",
+          "required": false,
+          "min": 0,
+          "default": 0
+        },
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "required": false,
+          "default": true
+        },
+        {
+          "name": "isoCreatedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        },
+        {
+          "name": "isoModifiedDate",
+          "type": "date",
+          "required": false,
+          "min": 8,
+          "max": 29,
+          "default": "CurrentDate"
+        }
+      ],
+      "permissions": {
+        "GET": [
+          "business_admin",
+          "business_representative",
+          "buyer_account",
+          "anonymous",
+          "specialty_admin"
+        ],
+        "POST": ["business_admin", "business_representative"],
+        "PUT": ["business_admin", "business_representative"],
+        "DELETE": [
+          "business_admin",
+          "business_representative",
+          "specialty_admin"
+        ]
+      }
+    }
+  ],
+  "users": [
+    {
+      "id": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+      "email": "bezoeker.marktplaats@gmail.com",
+      "password": "markplaats123!",
+      "roles": ["account_owner", "buyer_account"]
+    },
+    {
+      "id": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+      "email": "admin.ondernemer@specialty.com",
+      "password": "ondernemer123!",
+      "roles": ["account_owner", "business_admin"]
+    },
+    {
+      "id": "3e4f5a6b-7c8d-49e1-a2b3-c4d5e6f70819",
+      "email": "assistent.ondernemer@specialty.com",
+      "password": "assistent123!",
+      "roles": ["account_owner", "business_representative"]
+    },
+    {
+      "id": "a91b82c3-d4e5-46f7-8a9b-0c1d2e3f4a55",
+      "email": "specialty.admin@specialty.com",
+      "password": "admin123!",
+      "roles": ["specialty_admin"]
+    },
+    {
+      "id": "c1347a8e-21b4-4d5f-9a67-3c9e2f4b6a10",
+      "email": "admin.snelkoerier@specialty.com",
+      "password": "koerier123!",
+      "roles": ["account_owner", "business_admin"]
+    },
+    {
+      "id": "d2458b9f-32c5-4e6a-a178-4daf305c7b21",
+      "email": "admin.freshfleet@specialty.com",
+      "password": "fresh123!",
+      "roles": ["account_owner", "business_admin"]
+    }
+  ],
+  "data": [
+    {
+      "Accounts": [
+        {
+          "accountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "displayName": "Marketplace Visitor",
+          "isoLastLoginDate": "2025-02-14T18:42:00Z",
+          "isoCreatedDate": "2025-01-05T09:00:00Z",
+          "isoModifiedDate": "2025-02-14T18:42:00Z",
+          "isActive": true
+        },
+        {
+          "accountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "displayName": "Chef Atelier Admin",
+          "isoLastLoginDate": "2025-02-15T08:30:00Z",
+          "isoCreatedDate": "2025-01-06T10:00:00Z",
+          "isoModifiedDate": "2025-02-15T08:30:00Z",
+          "isActive": true
+        },
+        {
+          "accountId": "3e4f5a6b-7c8d-49e1-a2b3-c4d5e6f70819",
+          "displayName": "Chef Atelier Assistant",
+          "isoLastLoginDate": "2025-02-15T07:45:00Z",
+          "isoCreatedDate": "2025-01-07T10:30:00Z",
+          "isoModifiedDate": "2025-02-15T07:45:00Z",
+          "isActive": true
+        },
+        {
+          "accountId": "a91b82c3-d4e5-46f7-8a9b-0c1d2e3f4a55",
+          "displayName": "Specialty Platform Admin",
+          "isoLastLoginDate": "2025-02-15T06:15:00Z",
+          "isoCreatedDate": "2025-01-02T08:00:00Z",
+          "isoModifiedDate": "2025-02-15T06:15:00Z",
+          "isActive": true
+        },
+        {
+          "accountId": "c1347a8e-21b4-4d5f-9a67-3c9e2f4b6a10",
+          "displayName": "SnelKoerier Admin",
+          "isoLastLoginDate": "2025-02-18T07:20:00Z",
+          "isoCreatedDate": "2025-01-08T08:00:00Z",
+          "isoModifiedDate": "2025-02-18T07:20:00Z",
+          "isActive": true
+        },
+        {
+          "accountId": "d2458b9f-32c5-4e6a-a178-4daf305c7b21",
+          "displayName": "FreshFleet Admin",
+          "isoLastLoginDate": "2025-02-18T07:45:00Z",
+          "isoCreatedDate": "2025-01-09T08:30:00Z",
+          "isoModifiedDate": "2025-02-18T07:45:00Z",
+          "isActive": true
+        }
+      ]
+    },
+    {
+      "BusinessMembers": [
+        {
+          "businessMemberId": "e101f2a3-b4c5-46d7-889a-0b1c2d3e4f50",
+          "businessId": "55ee66ff-7788-4999-8a33-445566778899",
+          "accountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "memberRole": "business_admin",
+          "isPrimary": true,
+          "isActive": true,
+          "isoCreatedDate": "2025-01-10T09:00:00Z",
+          "isoModifiedDate": "2025-01-10T09:00:00Z"
+        },
+        {
+          "businessMemberId": "f212a3b4-c5d6-47e8-99ab-1c2d3e4f5061",
+          "businessId": "55ee66ff-7788-4999-8a33-445566778899",
+          "accountId": "3e4f5a6b-7c8d-49e1-a2b3-c4d5e6f70819",
+          "memberRole": "business_representative",
+          "isPrimary": false,
+          "isActive": true,
+          "isoCreatedDate": "2025-01-10T09:10:00Z",
+          "isoModifiedDate": "2025-01-10T09:10:00Z"
+        },
+        {
+          "businessMemberId": "a323b4c5-d6e7-48f9-a0bc-2d3e4f506172",
+          "businessId": "1f4a8c9e-2b7d-4c61-95f4-0f1b2d3c4e51",
+          "accountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "memberRole": "business_admin",
+          "isPrimary": true,
+          "isActive": true,
+          "isoCreatedDate": "2025-01-15T10:00:00Z",
+          "isoModifiedDate": "2025-01-15T10:00:00Z"
+        },
+        {
+          "businessMemberId": "b434c5d6-e7f8-4901-b1cd-3e4f50617283",
+          "businessId": "2a5b7c8d-9e10-4f21-a362-4b5c6d7e8f90",
+          "accountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "memberRole": "business_admin",
+          "isPrimary": true,
+          "isActive": true,
+          "isoCreatedDate": "2025-01-20T08:45:00Z",
+          "isoModifiedDate": "2025-01-20T08:45:00Z"
+        },
+        {
+          "businessMemberId": "c545d6e7-f809-4a12-c2de-4f5061728394",
+          "businessId": "4d7e9f10-1234-4b56-c795-8e9f01234567",
+          "accountId": "c1347a8e-21b4-4d5f-9a67-3c9e2f4b6a10",
+          "memberRole": "business_admin",
+          "isPrimary": true,
+          "isActive": true,
+          "isoCreatedDate": "2025-01-17T08:00:00Z",
+          "isoModifiedDate": "2025-01-17T08:00:00Z"
+        },
+        {
+          "businessMemberId": "d656e7f8-091a-4b23-d3ef-5061728394a5",
+          "businessId": "3b6c8d9e-0f12-4a34-b573-5c6d7e8f9012",
+          "accountId": "d2458b9f-32c5-4e6a-a178-4daf305c7b21",
+          "memberRole": "business_admin",
+          "isPrimary": true,
+          "isActive": true,
+          "isoCreatedDate": "2025-01-18T08:15:00Z",
+          "isoModifiedDate": "2025-01-18T08:15:00Z"
+        }
+      ]
+    },
+    {
+      "Domains": [
+        {
+          "domainId": "f1a2b3c4-d5e6-47f8-9a0b-1c2d3e4f5a66",
+          "domainName": "Chefs",
+          "isActive": true,
+          "isoCreatedDate": "2025-01-03T09:00:00Z",
+          "isoModifiedDate": "2025-01-03T09:00:00Z"
+        },
+        {
+          "domainId": "0a9b8c7d-6e5f-4123-98ab-7c6d5e4f3a22",
+          "domainName": "Wellness",
+          "isActive": true,
+          "isoCreatedDate": "2025-01-03T09:15:00Z",
+          "isoModifiedDate": "2025-01-03T09:15:00Z"
+        },
+        {
+          "domainId": "9f1a2b3c-4d5e-4789-a0b1-2c3d4e5f6a70",
+          "domainName": "Logistics",
+          "isActive": true,
+          "isoCreatedDate": "2025-01-04T09:30:00Z",
+          "isoModifiedDate": "2025-01-04T09:30:00Z"
+        }
+      ]
+    },
+    {
+      "DomainNiches": [
+        {
+          "DomainNicheId": "11aa22bb-33cc-44dd-85ee-ff0011223344",
+          "domainId": "f1a2b3c4-d5e6-47f8-9a0b-1c2d3e4f5a66",
+          "domainNicheName": "Private Chef",
+          "isoCreatedAt": "2025-01-03T10:00:00Z",
+          "isoModifiedDate": "2025-01-03T10:00:00Z"
+        },
+        {
+          "DomainNicheId": "22bb33cc-44dd-55ee-96ff-001122334455",
+          "domainId": "f1a2b3c4-d5e6-47f8-9a0b-1c2d3e4f5a66",
+          "domainNicheName": "Pastry Chef",
+          "isoCreatedAt": "2025-01-03T10:05:00Z",
+          "isoModifiedDate": "2025-01-03T10:05:00Z"
+        },
+        {
+          "DomainNicheId": "33cc44dd-55ee-46ff-a711-223344556677",
+          "domainId": "f1a2b3c4-d5e6-47f8-9a0b-1c2d3e4f5a66",
+          "domainNicheName": "BBQ Chef",
+          "isoCreatedAt": "2025-01-03T10:10:00Z",
+          "isoModifiedDate": "2025-01-03T10:10:00Z"
+        },
+        {
+          "DomainNicheId": "44dd55ee-66ff-4771-b822-334455667788",
+          "domainId": "0a9b8c7d-6e5f-4123-98ab-7c6d5e4f3a22",
+          "domainNicheName": "Massage Therapist",
+          "isoCreatedAt": "2025-01-03T10:20:00Z",
+          "isoModifiedDate": "2025-01-03T10:20:00Z"
+        },
+        {
+          "DomainNicheId": "5a6b7c8d-9e0f-41a2-b3c4-d5e6f7081920",
+          "domainId": "9f1a2b3c-4d5e-4789-a0b1-2c3d4e5f6a70",
+          "domainNicheName": "Courier Service",
+          "isoCreatedAt": "2025-01-04T09:40:00Z",
+          "isoModifiedDate": "2025-01-04T09:40:00Z"
+        }
+      ]
+    },
+    {
+      "Businesses": [
+        {
+          "businessId": "55ee66ff-7788-4999-8a33-445566778899",
+          "businessDomainNicheId": "66ff7788-99aa-4bbb-9c44-5566778899aa",
+          "businessName": "Chef Atelier Utrecht",
+          "businessLogo": "{\"imageUrl\":{\"fileName\":\"chef-atelier.gif\",\"contentType\":\"image/gif\",\"length\":35,\"base64Data\":\"R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=\"}}",
+          "city": "Utrecht",
+          "postalCode": "3511AB",
+          "latitude": 52.0907,
+          "longitude": 5.1214,
+          "profileDescription": "Private chef services for fine dining at home, intimate events, and premium business dinners in Utrecht and nearby cities.",
+          "publicContactEmail": "chefatelierutrecht@specialty.nl",
+          "addressText": "Oudegracht 120, 3511 AB Utrecht, Netherlands",
+          "complianceStatus": "Compliant",
+          "isoCreatedDate": "2025-01-10T09:00:00Z",
+          "isoPublishedDate": "2025-01-12T10:00:00Z",
+          "isoModifiedDate": "2025-02-01T08:15:00Z"
+        },
+        {
+          "businessId": "1f4a8c9e-2b7d-4c61-95f4-0f1b2d3c4e51",
+          "businessDomainNicheId": "7c1b2a3d-4e5f-4a61-8b92-1c2d3e4f5061",
+          "businessName": "Maison Patisserie Amsterdam",
+          "businessLogo": "{\"imageUrl\":{\"fileName\":\"maison-patisserie.gif\",\"contentType\":\"image/gif\",\"length\":35,\"base64Data\":\"R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=\"}}",
+          "city": "Amsterdam",
+          "postalCode": "1017NX",
+          "latitude": 52.3676,
+          "longitude": 4.9041,
+          "profileDescription": "Luxury pastry experiences, dessert tables, and boutique baking workshops for private parties and branded events in Amsterdam.",
+          "publicContactEmail": "maisonpatisserie@specialty.nl",
+          "addressText": "Prinsengracht 310, 1017 NX Amsterdam, Netherlands",
+          "complianceStatus": "Compliant",
+          "isoCreatedDate": "2025-01-15T10:00:00Z",
+          "isoPublishedDate": "2025-01-18T09:00:00Z",
+          "isoModifiedDate": "2025-02-03T11:30:00Z"
+        },
+        {
+          "businessId": "2a5b7c8d-9e10-4f21-a362-4b5c6d7e8f90",
+          "businessDomainNicheId": "8d2c3b4a-5f6e-4b72-9ca3-2d3e4f506172",
+          "businessName": "Fire Feast Rotterdam",
+          "businessLogo": "{\"imageUrl\":{\"fileName\":\"fire-feast.gif\",\"contentType\":\"image/gif\",\"length\":35,\"base64Data\":\"R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=\"}}",
+          "city": "Rotterdam",
+          "postalCode": "3011GM",
+          "latitude": 51.9244,
+          "longitude": 4.4777,
+          "profileDescription": "Live fire dining, premium BBQ catering, and private chef grill experiences for events, terraces, and business gatherings.",
+          "publicContactEmail": "firefeast@specialty.nl",
+          "addressText": "Blaak 145, 3011 GM Rotterdam, Netherlands",
+          "complianceStatus": "Compliant",
+          "isoCreatedDate": "2025-01-20T08:45:00Z",
+          "isoPublishedDate": "2025-01-22T13:15:00Z",
+          "isoModifiedDate": "2025-02-04T10:10:00Z"
+        },
+        {
+          "businessId": "4d7e9f10-1234-4b56-c795-8e9f01234567",
+          "businessDomainNicheId": "ae4f5061-7283-4d94-bec5-4f5061728394",
+          "businessName": "SnelKoerier Randstad",
+          "businessLogo": "{\"imageUrl\":{\"fileName\":\"snelkoerier-randstad.gif\",\"contentType\":\"image/gif\",\"length\":35,\"base64Data\":\"R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=\"}}",
+          "city": "Utrecht",
+          "postalCode": "3521AL",
+          "latitude": 52.0786,
+          "longitude": 5.1232,
+          "profileDescription": "Same-day courier service for local food, premium meal boxes, and hospitality deliveries across Utrecht and the Randstad.",
+          "publicContactEmail": "dispatch@snelkoerier-randstad.nl",
+          "addressText": "Vondellaan 88, 3521 AL Utrecht, Netherlands",
+          "complianceStatus": "Compliant",
+          "isoCreatedDate": "2025-01-17T08:00:00Z",
+          "isoPublishedDate": "2025-01-19T09:00:00Z",
+          "isoModifiedDate": "2025-02-05T07:50:00Z"
+        },
+        {
+          "businessId": "3b6c8d9e-0f12-4a34-b573-5c6d7e8f9012",
+          "businessDomainNicheId": "9e3d4c5b-6a7f-4c83-adb4-3e4f50617283",
+          "businessName": "FreshFleet Express",
+          "businessLogo": "{\"imageUrl\":{\"fileName\":\"freshfleet-express.gif\",\"contentType\":\"image/gif\",\"length\":35,\"base64Data\":\"R0lGODlhAQABAIABAP///wAAACwAAAAAAQABAAACAkQBADs=\"}}",
+          "city": "Amsterdam",
+          "postalCode": "1043NX",
+          "latitude": 52.3871,
+          "longitude": 4.8349,
+          "profileDescription": "Temperature-aware city courier for pastry, chilled boxes, and scheduled same-day delivery for specialty food businesses.",
+          "publicContactEmail": "ops@freshfleet-express.nl",
+          "addressText": "Radarweg 60, 1043 NX Amsterdam, Netherlands",
+          "complianceStatus": "Compliant",
+          "isoCreatedDate": "2025-01-18T08:15:00Z",
+          "isoPublishedDate": "2025-01-20T09:10:00Z",
+          "isoModifiedDate": "2025-02-05T08:10:00Z"
+        }
+      ]
+    },
+    {
+      "BusinessDomainNiches": [
+        {
+          "businessDomainNicheId": "66ff7788-99aa-4bbb-9c44-5566778899aa",
+          "businessId": "55ee66ff-7788-4999-8a33-445566778899",
+          "domainNicheId": "11aa22bb-33cc-44dd-85ee-ff0011223344",
+          "isoCreatedAt": "2025-01-10T09:05:00Z",
+          "isoModifiedDate": "2025-01-10T09:05:00Z"
+        },
+        {
+          "businessDomainNicheId": "7c1b2a3d-4e5f-4a61-8b92-1c2d3e4f5061",
+          "businessId": "1f4a8c9e-2b7d-4c61-95f4-0f1b2d3c4e51",
+          "domainNicheId": "22bb33cc-44dd-55ee-96ff-001122334455",
+          "isoCreatedAt": "2025-01-15T10:05:00Z",
+          "isoModifiedDate": "2025-01-15T10:05:00Z"
+        },
+        {
+          "businessDomainNicheId": "8d2c3b4a-5f6e-4b72-9ca3-2d3e4f506172",
+          "businessId": "2a5b7c8d-9e10-4f21-a362-4b5c6d7e8f90",
+          "domainNicheId": "33cc44dd-55ee-46ff-a711-223344556677",
+          "isoCreatedAt": "2025-01-20T08:50:00Z",
+          "isoModifiedDate": "2025-01-20T08:50:00Z"
+        },
+        {
+          "businessDomainNicheId": "ae4f5061-7283-4d94-bec5-4f5061728394",
+          "businessId": "4d7e9f10-1234-4b56-c795-8e9f01234567",
+          "domainNicheId": "5a6b7c8d-9e0f-41a2-b3c4-d5e6f7081920",
+          "isoCreatedAt": "2025-01-17T08:05:00Z",
+          "isoModifiedDate": "2025-01-17T08:05:00Z"
+        },
+        {
+          "businessDomainNicheId": "9e3d4c5b-6a7f-4c83-adb4-3e4f50617283",
+          "businessId": "3b6c8d9e-0f12-4a34-b573-5c6d7e8f9012",
+          "domainNicheId": "5a6b7c8d-9e0f-41a2-b3c4-d5e6f7081920",
+          "isoCreatedAt": "2025-01-18T08:20:00Z",
+          "isoModifiedDate": "2025-01-18T08:20:00Z"
+        }
+      ]
+    },
+    {
+      "Configurations": [
+        {
+          "configId": "77aa88bb-99cc-4ddd-8e55-66778899aabb",
+          "businessId": "55ee66ff-7788-4999-8a33-445566778899",
+          "wizardAnswersJson": "{\"businessType\":\"private-chef\",\"servesOnLocation\":true,\"maxGuests\":18}",
+          "wizardVersion": "1.2.0",
+          "wizardCompletedAt": "2025-01-11T15:30:00Z",
+          "enabledModules": "[\"storefront\",\"booking\",\"invoicing\"]",
+          "enabledModulesJson": "{\"storefront\":true,\"booking\":true,\"invoicing\":true}",
+          "storeFrontConfigJson": "{\"theme\":\"dark\",\"heroTitle\":\"Private dining at home\",\"showReviews\":true}",
+          "provisioningStatus": "Provisioned",
+          "isPublished": true,
+          "isoCreatedDate": "2025-01-11T15:30:00Z",
+          "isoModifiedDate": "2025-02-01T08:20:00Z"
+        },
+        {
+          "configId": "3b6c8d9e-0f12-4a34-b573-5c6d7e8f9013",
+          "businessId": "1f4a8c9e-2b7d-4c61-95f4-0f1b2d3c4e51",
+          "wizardAnswersJson": "{\"businessType\":\"pastry-chef\",\"workshopEnabled\":true,\"maxGuests\":12}",
+          "wizardVersion": "1.2.0",
+          "wizardCompletedAt": "2025-01-16T14:00:00Z",
+          "enabledModules": "[\"storefront\",\"booking\",\"invoicing\"]",
+          "enabledModulesJson": "{\"storefront\":true,\"booking\":true,\"invoicing\":true}",
+          "storeFrontConfigJson": "{\"theme\":\"light\",\"heroTitle\":\"Boutique pastry experiences\",\"showReviews\":true}",
+          "provisioningStatus": "Provisioned",
+          "isPublished": true,
+          "isoCreatedDate": "2025-01-16T14:00:00Z",
+          "isoModifiedDate": "2025-02-03T11:35:00Z"
+        },
+        {
+          "configId": "4c7d9e0f-1234-4b45-c684-6d7e8f901234",
+          "businessId": "2a5b7c8d-9e10-4f21-a362-4b5c6d7e8f90",
+          "wizardAnswersJson": "{\"businessType\":\"bbq-chef\",\"onSiteCatering\":true,\"maxGuests\":60}",
+          "wizardVersion": "1.2.0",
+          "wizardCompletedAt": "2025-01-21T16:20:00Z",
+          "enabledModules": "[\"storefront\",\"booking\",\"invoicing\"]",
+          "enabledModulesJson": "{\"storefront\":true,\"booking\":true,\"invoicing\":true}",
+          "storeFrontConfigJson": "{\"theme\":\"dark\",\"heroTitle\":\"Live fire catering\",\"showReviews\":true}",
+          "provisioningStatus": "Provisioned",
+          "isPublished": true,
+          "isoCreatedDate": "2025-01-21T16:20:00Z",
+          "isoModifiedDate": "2025-02-04T10:15:00Z"
+        },
+        {
+          "configId": "b15c26d7-e8f9-4012-a345-6789abcdef10",
+          "businessId": "1f4a8c9e-2b7d-4c61-95f4-0f1b2d3c4e51",
+          "wizardAnswersJson": "{\"businessType\":\"pastry-chef\",\"pickupEnabled\":true,\"maxOrdersPerDay\":20}",
+          "wizardVersion": "1.2.0",
+          "wizardCompletedAt": "2025-01-16T14:00:00Z",
+          "enabledModules": "[\"storefront\",\"booking\",\"invoicing\"]",
+          "enabledModulesJson": "{\"storefront\":true,\"booking\":true,\"invoicing\":true}",
+          "storeFrontConfigJson": "{\"theme\":\"light\",\"heroTitle\":\"Premium pastry takeaway\",\"showReviews\":true}",
+          "provisioningStatus": "Provisioned",
+          "isPublished": true,
+          "isoCreatedDate": "2025-01-16T14:00:00Z",
+          "isoModifiedDate": "2025-02-03T11:35:00Z"
+        },
+        {
+          "configId": "5d8e0f12-3456-4c56-d795-7e8f90123456",
+          "businessId": "4d7e9f10-1234-4b56-c795-8e9f01234567",
+          "wizardAnswersJson": "{\"businessType\":\"courier-service\",\"sameDayDelivery\":true,\"temperatureControl\":false}",
+          "wizardVersion": "1.2.0",
+          "wizardCompletedAt": "2025-01-19T11:00:00Z",
+          "enabledModules": "[\"storefront\",\"booking\",\"invoicing\"]",
+          "enabledModulesJson": "{\"storefront\":true,\"booking\":true,\"invoicing\":true}",
+          "storeFrontConfigJson": "{\"theme\":\"dark\",\"heroTitle\":\"Same-day food delivery\",\"showReviews\":true}",
+          "provisioningStatus": "Provisioned",
+          "isPublished": true,
+          "isoCreatedDate": "2025-01-19T11:00:00Z",
+          "isoModifiedDate": "2025-02-05T07:55:00Z"
+        },
+        {
+          "configId": "6e9f1023-4567-4d67-e8a6-8f9012345678",
+          "businessId": "3b6c8d9e-0f12-4a34-b573-5c6d7e8f9012",
+          "wizardAnswersJson": "{\"businessType\":\"courier-service\",\"sameDayDelivery\":true,\"temperatureControl\":true}",
+          "wizardVersion": "1.2.0",
+          "wizardCompletedAt": "2025-01-20T11:15:00Z",
+          "enabledModules": "[\"storefront\",\"booking\",\"invoicing\"]",
+          "enabledModulesJson": "{\"storefront\":true,\"booking\":true,\"invoicing\":true}",
+          "storeFrontConfigJson": "{\"theme\":\"dark\",\"heroTitle\":\"Chilled courier operations\",\"showReviews\":true}",
+          "provisioningStatus": "Provisioned",
+          "isPublished": true,
+          "isoCreatedDate": "2025-01-20T11:15:00Z",
+          "isoModifiedDate": "2025-02-05T08:15:00Z"
+        }
+      ]
+    },
+    {
+      "Offers": [
+        {
+          "offerId": "88bb99cc-aadd-4eee-9f66-778899aabbcc",
+          "businessId": "55ee66ff-7788-4999-8a33-445566778899",
+          "businessOfferType": "Service",
+          "businessOfferTypeSnapshot": "[\"Private Chef\",\"Fine Dining\"]",
+          "title": "Private Dining at Home",
+          "description": "A five-course in-home dining experience prepared by a private chef.",
+          "priceAmountExcludingTax": 189.0,
+          "priceTaxAmount": 39.69,
+          "priceAmountIncludingTax": 228.69,
+          "isoPriceCurrency": "EUR",
+          "isActive": true,
+          "mediaJson": "[{\"type\":\"image\",\"url\":\"https://picsum.photos/seed/private-dining/1200/800\"}]",
+          "isBookable": true,
+          "inventoryQuantity": 10,
+          "isoCreatedDate": "2025-01-12T11:00:00Z",
+          "isoModifiedDate": "2025-02-01T08:25:00Z"
+        },
+        {
+          "offerId": "99ccaadd-beef-4f11-a077-8899aabbccdd",
+          "businessId": "55ee66ff-7788-4999-8a33-445566778899",
+          "businessOfferType": "Workshop",
+          "businessOfferTypeSnapshot": "[\"Pastry Chef\",\"Workshop\"]",
+          "title": "French Pastry Workshop",
+          "description": "A small-group workshop focused on classic French pastry techniques.",
+          "priceAmountExcludingTax": 65.0,
+          "priceTaxAmount": 13.65,
+          "priceAmountIncludingTax": 78.65,
+          "isoPriceCurrency": "EUR",
+          "isActive": true,
+          "mediaJson": "[{\"type\":\"image\",\"url\":\"https://picsum.photos/seed/pastry-workshop/1200/800\"}]",
+          "isBookable": true,
+          "inventoryQuantity": 24,
+          "isoCreatedDate": "2025-01-13T09:30:00Z",
+          "isoModifiedDate": "2025-02-01T08:40:00Z"
+        },
+        {
+          "offerId": "5d8e0f12-3456-4c56-d795-7e8f90123456",
+          "businessId": "1f4a8c9e-2b7d-4c61-95f4-0f1b2d3c4e51",
+          "businessOfferType": "Workshop",
+          "businessOfferTypeSnapshot": "[\"Pastry Chef\",\"Workshop\"]",
+          "title": "Macaron Masterclass",
+          "description": "A hands-on pastry workshop covering shells, fillings, and professional finishing techniques.",
+          "priceAmountExcludingTax": 85.0,
+          "priceTaxAmount": 17.85,
+          "priceAmountIncludingTax": 102.85,
+          "isoPriceCurrency": "EUR",
+          "isActive": true,
+          "mediaJson": "[{\"type\":\"image\",\"url\":\"https://picsum.photos/seed/macaron-masterclass/1200/800\"}]",
+          "isBookable": true,
+          "inventoryQuantity": 18,
+          "isoCreatedDate": "2025-01-17T09:00:00Z",
+          "isoModifiedDate": "2025-02-03T11:40:00Z"
+        },
+        {
+          "offerId": "6e9f1023-4567-4d67-e8a6-8f9012345678",
+          "businessId": "2a5b7c8d-9e10-4f21-a362-4b5c6d7e8f90",
+          "businessOfferType": "Service",
+          "businessOfferTypeSnapshot": "[\"BBQ Chef\",\"Catering\"]",
+          "title": "Live Fire Catering Experience",
+          "description": "A chef-led live fire catering service with premium meats, sides, and on-site preparation.",
+          "priceAmountExcludingTax": 325.0,
+          "priceTaxAmount": 68.25,
+          "priceAmountIncludingTax": 393.25,
+          "isoPriceCurrency": "EUR",
+          "isActive": true,
+          "mediaJson": "[{\"type\":\"image\",\"url\":\"https://picsum.photos/seed/live-fire-catering/1200/800\"}]",
+          "isBookable": true,
+          "inventoryQuantity": 8,
+          "isoCreatedDate": "2025-01-22T10:10:00Z",
+          "isoModifiedDate": "2025-02-04T10:20:00Z"
+        },
+        {
+          "offerId": "7f102345-5678-4e78-f9b7-901234567890",
+          "businessId": "1f4a8c9e-2b7d-4c61-95f4-0f1b2d3c4e51",
+          "businessOfferType": "Product",
+          "businessOfferTypeSnapshot": "[\"Pastry Chef\",\"Pickup\"]",
+          "title": "Weekend Dessert Box Pickup",
+          "description": "A premium pastry takeaway box with seasonal desserts for local pickup at the Amsterdam location.",
+          "priceAmountExcludingTax": 32.5,
+          "priceTaxAmount": 6.83,
+          "priceAmountIncludingTax": 39.33,
+          "isoPriceCurrency": "EUR",
+          "isActive": true,
+          "mediaJson": "[{\"type\":\"image\",\"url\":\"https://picsum.photos/seed/dessert-box-pickup/1200/800\"}]",
+          "isBookable": true,
+          "inventoryQuantity": 30,
+          "isoCreatedDate": "2025-01-17T09:00:00Z",
+          "isoModifiedDate": "2025-02-03T11:40:00Z"
+        },
+        {
+          "offerId": "80112345-6789-4f89-a0c8-0123456789ab",
+          "businessId": "4d7e9f10-1234-4b56-c795-8e9f01234567",
+          "businessOfferType": "Service",
+          "businessOfferTypeSnapshot": "[\"Courier Service\",\"Same Day\"]",
+          "title": "Same Day City Delivery",
+          "description": "A same-day courier service for food and hospitality orders within the city region.",
+          "priceAmountExcludingTax": 18.5,
+          "priceTaxAmount": 3.89,
+          "priceAmountIncludingTax": 22.39,
+          "isoPriceCurrency": "EUR",
+          "isActive": true,
+          "mediaJson": "[{\"type\":\"image\",\"url\":\"https://picsum.photos/seed/same-day-city-delivery/1200/800\"}]",
+          "isBookable": true,
+          "inventoryQuantity": 200,
+          "isoCreatedDate": "2025-01-19T12:00:00Z",
+          "isoModifiedDate": "2025-02-05T08:00:00Z"
+        },
+        {
+          "offerId": "91223456-789a-40ab-b1d9-123456789abc",
+          "businessId": "3b6c8d9e-0f12-4a34-b573-5c6d7e8f9012",
+          "businessOfferType": "Service",
+          "businessOfferTypeSnapshot": "[\"Courier Service\",\"Chilled Delivery\"]",
+          "title": "Chilled Express Delivery",
+          "description": "A temperature-aware courier option for pastry boxes, chilled desserts, and fragile food deliveries.",
+          "priceAmountExcludingTax": 24.0,
+          "priceTaxAmount": 5.04,
+          "priceAmountIncludingTax": 29.04,
+          "isoPriceCurrency": "EUR",
+          "isActive": true,
+          "mediaJson": "[{\"type\":\"image\",\"url\":\"https://picsum.photos/seed/chilled-express-delivery/1200/800\"}]",
+          "isBookable": true,
+          "inventoryQuantity": 160,
+          "isoCreatedDate": "2025-01-20T12:10:00Z",
+          "isoModifiedDate": "2025-02-05T08:20:00Z"
+        }
+      ]
+    },
+    {
+      "OfferAvailabilityRule": [
+        {
+          "availabilityRuleId": "aaddbbcc-ddee-4012-b188-99aabbccddee",
+          "offerId": "88bb99cc-aadd-4eee-9f66-778899aabbcc",
+          "localIso8601UtcTimeZoneCountryCode": "NL",
+          "isoAvailabilityRuleStartDate": "2025-02-01T00:00:00Z",
+          "isoAvailabilityRuleEndDate": "2025-12-31T23:59:59Z",
+          "isoLocalUtcBusinessOpeningTime": "2025-02-01T16:00:00Z",
+          "isoLocalUtcBusinessEndTime": "2025-02-01T22:00:00Z",
+          "isoLocalUtcBreakTimeStart": "2025-02-01T18:30:00Z",
+          "isoLocalUtcBreakTimeEnd": "2025-02-01T19:00:00Z",
+          "slotDurationInMinutes": 180,
+          "maxBookingsPerDay": 2,
+          "isActive": true,
+          "isoCreatedDate": "2025-01-12T11:10:00Z",
+          "isoModifiedDate": "2025-02-01T08:50:00Z"
+        },
+        {
+          "availabilityRuleId": "bbeeccdd-eeff-4123-c299-aabbccddeeff",
+          "offerId": "5d8e0f12-3456-4c56-d795-7e8f90123456",
+          "localIso8601UtcTimeZoneCountryCode": "NL",
+          "isoAvailabilityRuleStartDate": "2025-02-01T00:00:00Z",
+          "isoAvailabilityRuleEndDate": "2025-12-31T23:59:59Z",
+          "isoLocalUtcBusinessOpeningTime": "2025-02-01T09:00:00Z",
+          "isoLocalUtcBusinessEndTime": "2025-02-01T17:00:00Z",
+          "isoLocalUtcBreakTimeStart": "2025-02-01T12:30:00Z",
+          "isoLocalUtcBreakTimeEnd": "2025-02-01T13:00:00Z",
+          "slotDurationInMinutes": 150,
+          "maxBookingsPerDay": 2,
+          "isActive": true,
+          "isoCreatedDate": "2025-01-17T09:10:00Z",
+          "isoModifiedDate": "2025-02-03T11:45:00Z"
+        },
+        {
+          "availabilityRuleId": "ccddeeff-0011-4234-d3aa-bbccddeeff00",
+          "offerId": "6e9f1023-4567-4d67-e8a6-8f9012345678",
+          "localIso8601UtcTimeZoneCountryCode": "NL",
+          "isoAvailabilityRuleStartDate": "2025-02-01T00:00:00Z",
+          "isoAvailabilityRuleEndDate": "2025-12-31T23:59:59Z",
+          "isoLocalUtcBusinessOpeningTime": "2025-02-01T14:00:00Z",
+          "isoLocalUtcBusinessEndTime": "2025-02-01T22:00:00Z",
+          "isoLocalUtcBreakTimeStart": "2025-02-01T17:30:00Z",
+          "isoLocalUtcBreakTimeEnd": "2025-02-01T18:00:00Z",
+          "slotDurationInMinutes": 240,
+          "maxBookingsPerDay": 1,
+          "isActive": true,
+          "isoCreatedDate": "2025-01-22T10:20:00Z",
+          "isoModifiedDate": "2025-02-04T10:25:00Z"
+        }
+      ]
+    },
+    {
+      "Invoices": [
+        {
+          "invoiceId": "bbccddee-eeff-4234-c299-aabbccddeeff",
+          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerNotes": "Please ring the doorbell at the side entrance.",
+          "specialtyTermsAndConditionsAccepted": true,
+          "useCustomInvoiceAddress": false,
+          "customInvoiceAddressText": "",
+          "isoCreatedDate": "2025-02-10T12:00:00Z",
+          "isoModifiedDate": "2025-02-10T12:00:00Z"
+        },
+        {
+          "invoiceId": "91223456-789a-40ab-b1d9-123456789abd",
+          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerNotes": "Please provide a workshop apron and recipe handout.",
+          "specialtyTermsAndConditionsAccepted": true,
+          "useCustomInvoiceAddress": false,
+          "customInvoiceAddressText": "",
+          "isoCreatedDate": "2025-02-11T09:15:00Z",
+          "isoModifiedDate": "2025-02-11T09:15:00Z"
+        },
+        {
+          "invoiceId": "a2334567-89ab-41bc-c2ea-23456789abcd",
+          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerNotes": "Corporate dinner booking for six guests.",
+          "specialtyTermsAndConditionsAccepted": true,
+          "useCustomInvoiceAddress": true,
+          "customInvoiceAddressText": "Stationsplein 10, 3511 ED Utrecht, Netherlands",
+          "isoCreatedDate": "2025-02-12T13:40:00Z",
+          "isoModifiedDate": "2025-02-12T13:40:00Z"
+        },
+        {
+          "invoiceId": "b3445678-9abc-42cd-d3fb-3456789abcde",
+          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerNotes": "Outdoor catering for a birthday celebration.",
+          "specialtyTermsAndConditionsAccepted": true,
+          "useCustomInvoiceAddress": false,
+          "customInvoiceAddressText": "",
+          "isoCreatedDate": "2025-02-13T16:10:00Z",
+          "isoModifiedDate": "2025-02-13T16:10:00Z"
+        },
+        {
+          "invoiceId": "c566789a-bcde-44ef-f51d-56789abcdef0",
+          "buyerAccountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "buyerNotes": "Courier booking by Chef Atelier Utrecht for a customer delivery in Utrecht.",
+          "specialtyTermsAndConditionsAccepted": true,
+          "useCustomInvoiceAddress": false,
+          "customInvoiceAddressText": "",
+          "isoCreatedDate": "2025-02-12T09:20:00Z",
+          "isoModifiedDate": "2025-02-12T09:20:00Z"
+        },
+        {
+          "invoiceId": "d67789ab-cdef-4501-a62e-6789abcdef01",
+          "buyerAccountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "buyerNotes": "Courier booking by Maison Patisserie Amsterdam for chilled dessert delivery.",
+          "specialtyTermsAndConditionsAccepted": true,
+          "useCustomInvoiceAddress": false,
+          "customInvoiceAddressText": "",
+          "isoCreatedDate": "2025-02-13T10:15:00Z",
+          "isoModifiedDate": "2025-02-13T10:15:00Z"
+        },
+        {
+          "invoiceId": "c4556789-abcd-43de-e40c-456789abcdef",
+          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerNotes": "Customer will pick up the dessert box at the Amsterdam store location.",
+          "specialtyTermsAndConditionsAccepted": true,
+          "useCustomInvoiceAddress": false,
+          "customInvoiceAddressText": "",
+          "isoCreatedDate": "2025-02-14T11:30:00Z",
+          "isoModifiedDate": "2025-02-14T11:30:00Z"
+        }
+      ]
+    },
+    {
+      "Transactions": [
+        {
+          "transactionId": "ccddee11-ff00-4456-d3aa-bbccddeeff00",
+          "invoiceId": "bbccddee-eeff-4234-c299-aabbccddeeff",
+          "offerId": "88bb99cc-aadd-4eee-9f66-778899aabbcc",
+          "quantity": 1,
+          "priceIsoCurrency": "EUR",
+          "totalAmountExcludingTax": 189.0,
+          "totalTaxAmount": 39.69,
+          "totalAmountIncludingTax": 228.69,
+          "isoScheduledStartDate": "2025-03-14T18:00:00Z",
+          "isoScheduledEndDate": "2025-03-14T21:00:00Z",
+          "notes": "Vegetarian menu preferred.",
+          "isLocalAppointment": false,
+          "shipmentStatus": "Not Applicable",
+          "deliveryStatus": "Scheduled",
+          "paymentProvider": "WeRo",
+          "paymentReceived": true,
+          "businessTermsAndConditionsAccepted": true,
+          "isoCreatedDate": "2025-02-10T12:05:00Z",
+          "isoModifiedDate": "2025-02-10T12:10:00Z"
+        },
+        {
+          "transactionId": "c4556789-abcd-43de-e40c-456789abcdea",
+          "invoiceId": "91223456-789a-40ab-b1d9-123456789abd",
+          "offerId": "5d8e0f12-3456-4c56-d795-7e8f90123456",
+          "quantity": 2,
+          "priceIsoCurrency": "EUR",
+          "totalAmountExcludingTax": 170.0,
+          "totalTaxAmount": 35.7,
+          "totalAmountIncludingTax": 205.7,
+          "isoScheduledStartDate": "2025-03-21T13:00:00Z",
+          "isoScheduledEndDate": "2025-03-21T15:30:00Z",
+          "notes": "Two workshop seats reserved for beginners.",
+          "isLocalAppointment": true,
+          "shipmentStatus": "Not Applicable",
+          "deliveryStatus": "Scheduled",
+          "paymentProvider": "WeRo",
+          "paymentReceived": true,
+          "businessTermsAndConditionsAccepted": true,
+          "isoCreatedDate": "2025-02-11T09:20:00Z",
+          "isoModifiedDate": "2025-02-11T09:25:00Z"
+        },
+        {
+          "transactionId": "d566789a-bcde-44ef-f51d-56789abcdef0",
+          "invoiceId": "a2334567-89ab-41bc-c2ea-23456789abcd",
+          "offerId": "88bb99cc-aadd-4eee-9f66-778899aabbcc",
+          "quantity": 1,
+          "priceIsoCurrency": "EUR",
+          "totalAmountExcludingTax": 189.0,
+          "totalTaxAmount": 39.69,
+          "totalAmountIncludingTax": 228.69,
+          "isoScheduledStartDate": "2025-04-04T17:30:00Z",
+          "isoScheduledEndDate": "2025-04-04T20:30:00Z",
+          "notes": "Business dinner with one pescatarian guest.",
+          "isLocalAppointment": false,
+          "shipmentStatus": "Not Applicable",
+          "deliveryStatus": "Scheduled",
+          "paymentProvider": "WeRo",
+          "paymentReceived": false,
+          "businessTermsAndConditionsAccepted": true,
+          "isoCreatedDate": "2025-02-12T13:45:00Z",
+          "isoModifiedDate": "2025-02-12T13:50:00Z"
+        },
+        {
+          "transactionId": "e67789ab-cdef-4501-a62e-6789abcdef01",
+          "invoiceId": "b3445678-9abc-42cd-d3fb-3456789abcde",
+          "offerId": "6e9f1023-4567-4d67-e8a6-8f9012345678",
+          "quantity": 1,
+          "priceIsoCurrency": "EUR",
+          "totalAmountExcludingTax": 325.0,
+          "totalTaxAmount": 68.25,
+          "totalAmountIncludingTax": 393.25,
+          "isoScheduledStartDate": "2025-04-12T16:00:00Z",
+          "isoScheduledEndDate": "2025-04-12T20:00:00Z",
+          "notes": "Backyard birthday event with premium grill menu.",
+          "isLocalAppointment": false,
+          "shipmentStatus": "Not Applicable",
+          "deliveryStatus": "Scheduled",
+          "paymentProvider": "WeRo",
+          "paymentReceived": true,
+          "businessTermsAndConditionsAccepted": true,
+          "isoCreatedDate": "2025-02-13T16:15:00Z",
+          "isoModifiedDate": "2025-02-13T16:20:00Z"
+        },
+        {
+          "transactionId": "0a889abc-def0-4612-b73f-789abcdef012",
+          "invoiceId": "c566789a-bcde-44ef-f51d-56789abcdef0",
+          "offerId": "80112345-6789-4f89-a0c8-0123456789ab",
+          "quantity": 1,
+          "priceIsoCurrency": "EUR",
+          "totalAmountExcludingTax": 18.5,
+          "totalTaxAmount": 3.89,
+          "totalAmountIncludingTax": 22.39,
+          "isoScheduledStartDate": "2025-03-05T16:30:00Z",
+          "isoScheduledEndDate": "2025-03-05T18:00:00Z",
+          "notes": "SnelKoerier Randstad hired by Chef Atelier Utrecht to deliver an order to a customer in Utrecht.",
+          "isLocalAppointment": false,
+          "shipmentStatus": "Handed to Courier",
+          "deliveryStatus": "Delivered",
+          "paymentProvider": "WeRo",
+          "paymentReceived": true,
+          "businessTermsAndConditionsAccepted": true,
+          "isoCreatedDate": "2025-02-12T09:25:00Z",
+          "isoModifiedDate": "2025-03-05T18:05:00Z"
+        },
+        {
+          "transactionId": "1b99abcd-ef01-4723-c840-89abcdef0123",
+          "invoiceId": "d67789ab-cdef-4501-a62e-6789abcdef01",
+          "offerId": "91223456-789a-40ab-b1d9-123456789abc",
+          "quantity": 1,
+          "priceIsoCurrency": "EUR",
+          "totalAmountExcludingTax": 24.0,
+          "totalTaxAmount": 5.04,
+          "totalAmountIncludingTax": 29.04,
+          "isoScheduledStartDate": "2025-03-08T10:00:00Z",
+          "isoScheduledEndDate": "2025-03-08T12:00:00Z",
+          "notes": "FreshFleet Express hired by Maison Patisserie Amsterdam for chilled dessert delivery to the customer.",
+          "isLocalAppointment": false,
+          "shipmentStatus": "Out for Delivery",
+          "deliveryStatus": "Scheduled",
+          "paymentProvider": "WeRo",
+          "paymentReceived": true,
+          "businessTermsAndConditionsAccepted": true,
+          "isoCreatedDate": "2025-02-13T10:20:00Z",
+          "isoModifiedDate": "2025-02-13T10:25:00Z"
+        },
+        {
+          "transactionId": "f7889abc-def0-4612-b73f-789abcdef012",
+          "invoiceId": "c4556789-abcd-43de-e40c-456789abcdef",
+          "offerId": "7f102345-5678-4e78-f9b7-901234567890",
+          "quantity": 1,
+          "priceIsoCurrency": "EUR",
+          "totalAmountExcludingTax": 32.5,
+          "totalTaxAmount": 6.83,
+          "totalAmountIncludingTax": 39.33,
+          "isoScheduledStartDate": "2025-03-09T09:00:00Z",
+          "isoScheduledEndDate": "2025-03-09T17:00:00Z",
+          "notes": "Customer collects the dessert box locally at Maison Patisserie Amsterdam.",
+          "isLocalAppointment": true,
+          "shipmentStatus": "Not Applicable",
+          "deliveryStatus": "Picked Up",
+          "paymentProvider": "WeRo",
+          "paymentReceived": true,
+          "businessTermsAndConditionsAccepted": true,
+          "isoCreatedDate": "2025-02-14T11:35:00Z",
+          "isoModifiedDate": "2025-03-09T14:10:00Z"
+        }
+      ]
+    }
+  ]
+}
