@@ -1,9 +1,7 @@
-function App() {
+import HomePage from './pages/HomePage';
+
+export default function App() {
   return (
-    <>
-        <h1>Specialty</h1>
-    </>
+    <HomePage />
   );
 }
-
-export default App;
