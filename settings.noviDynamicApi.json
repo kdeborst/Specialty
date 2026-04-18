@@ -968,37 +968,37 @@
   ],
   "users": [
     {
-      "id": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+      "id": 1,
       "email": "bezoeker.marktplaats@gmail.com",
       "password": "markplaats123!",
       "roles": ["account_owner", "buyer_account"]
     },
     {
-      "id": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+      "id": 2,
       "email": "admin.ondernemer@specialty.com",
       "password": "ondernemer123!",
       "roles": ["account_owner", "business_admin"]
     },
     {
-      "id": "3e4f5a6b-7c8d-49e1-a2b3-c4d5e6f70819",
+      "id": 3,
       "email": "assistent.ondernemer@specialty.com",
       "password": "assistent123!",
       "roles": ["account_owner", "business_representative"]
     },
     {
-      "id": "a91b82c3-d4e5-46f7-8a9b-0c1d2e3f4a55",
+      "id": 4,
       "email": "specialty.admin@specialty.com",
       "password": "admin123!",
       "roles": ["specialty_admin"]
     },
     {
-      "id": "c1347a8e-21b4-4d5f-9a67-3c9e2f4b6a10",
+      "id": 5,
       "email": "admin.snelkoerier@specialty.com",
       "password": "koerier123!",
       "roles": ["account_owner", "business_admin"]
     },
     {
-      "id": "d2458b9f-32c5-4e6a-a178-4daf305c7b21",
+      "id": 6,
       "email": "admin.freshfleet@specialty.com",
       "password": "fresh123!",
       "roles": ["account_owner", "business_admin"]
@@ -1008,7 +1008,7 @@
     {
       "Accounts": [
         {
-          "accountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "accountId": 1,
           "displayName": "Marketplace Visitor",
           "isoLastLoginDate": "2025-02-14T18:42:00Z",
           "isoCreatedDate": "2025-01-05T09:00:00Z",
@@ -1016,7 +1016,7 @@
           "isActive": true
         },
         {
-          "accountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "accountId": 2,
           "displayName": "Chef Atelier Admin",
           "isoLastLoginDate": "2025-02-15T08:30:00Z",
           "isoCreatedDate": "2025-01-06T10:00:00Z",
@@ -1024,7 +1024,7 @@
           "isActive": true
         },
         {
-          "accountId": "3e4f5a6b-7c8d-49e1-a2b3-c4d5e6f70819",
+          "accountId": 3,
           "displayName": "Chef Atelier Assistant",
           "isoLastLoginDate": "2025-02-15T07:45:00Z",
           "isoCreatedDate": "2025-01-07T10:30:00Z",
@@ -1032,7 +1032,7 @@
           "isActive": true
         },
         {
-          "accountId": "a91b82c3-d4e5-46f7-8a9b-0c1d2e3f4a55",
+          "accountId": 4,
           "displayName": "Specialty Platform Admin",
           "isoLastLoginDate": "2025-02-15T06:15:00Z",
           "isoCreatedDate": "2025-01-02T08:00:00Z",
@@ -1040,7 +1040,7 @@
           "isActive": true
         },
         {
-          "accountId": "c1347a8e-21b4-4d5f-9a67-3c9e2f4b6a10",
+          "accountId": 5,
           "displayName": "SnelKoerier Admin",
           "isoLastLoginDate": "2025-02-18T07:20:00Z",
           "isoCreatedDate": "2025-01-08T08:00:00Z",
@@ -1048,7 +1048,7 @@
           "isActive": true
         },
         {
-          "accountId": "d2458b9f-32c5-4e6a-a178-4daf305c7b21",
+          "accountId": 6,
           "displayName": "FreshFleet Admin",
           "isoLastLoginDate": "2025-02-18T07:45:00Z",
           "isoCreatedDate": "2025-01-09T08:30:00Z",
@@ -1062,7 +1062,7 @@
         {
           "businessMemberId": "e101f2a3-b4c5-46d7-889a-0b1c2d3e4f50",
           "businessId": "55ee66ff-7788-4999-8a33-445566778899",
-          "accountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "accountId": 2,
           "memberRole": "business_admin",
           "isPrimary": true,
           "isActive": true,
@@ -1072,7 +1072,7 @@
         {
           "businessMemberId": "f212a3b4-c5d6-47e8-99ab-1c2d3e4f5061",
           "businessId": "55ee66ff-7788-4999-8a33-445566778899",
-          "accountId": "3e4f5a6b-7c8d-49e1-a2b3-c4d5e6f70819",
+          "accountId": 3,
           "memberRole": "business_representative",
           "isPrimary": false,
           "isActive": true,
@@ -1082,7 +1082,7 @@
         {
           "businessMemberId": "a323b4c5-d6e7-48f9-a0bc-2d3e4f506172",
           "businessId": "1f4a8c9e-2b7d-4c61-95f4-0f1b2d3c4e51",
-          "accountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "accountId": 2,
           "memberRole": "business_admin",
           "isPrimary": true,
           "isActive": true,
@@ -1092,7 +1092,7 @@
         {
           "businessMemberId": "b434c5d6-e7f8-4901-b1cd-3e4f50617283",
           "businessId": "2a5b7c8d-9e10-4f21-a362-4b5c6d7e8f90",
-          "accountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "accountId": 2,
           "memberRole": "business_admin",
           "isPrimary": true,
           "isActive": true,
@@ -1102,7 +1102,7 @@
         {
           "businessMemberId": "c545d6e7-f809-4a12-c2de-4f5061728394",
           "businessId": "4d7e9f10-1234-4b56-c795-8e9f01234567",
-          "accountId": "c1347a8e-21b4-4d5f-9a67-3c9e2f4b6a10",
+          "accountId": 5,
           "memberRole": "business_admin",
           "isPrimary": true,
           "isActive": true,
@@ -1112,7 +1112,7 @@
         {
           "businessMemberId": "d656e7f8-091a-4b23-d3ef-5061728394a5",
           "businessId": "3b6c8d9e-0f12-4a34-b573-5c6d7e8f9012",
-          "accountId": "d2458b9f-32c5-4e6a-a178-4daf305c7b21",
+          "accountId": 6,
           "memberRole": "business_admin",
           "isPrimary": true,
           "isActive": true,
@@ -1587,7 +1587,7 @@
       "Invoices": [
         {
           "invoiceId": "bbccddee-eeff-4234-c299-aabbccddeeff",
-          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerAccountId": 1,
           "buyerNotes": "Please ring the doorbell at the side entrance.",
           "specialtyTermsAndConditionsAccepted": true,
           "useCustomInvoiceAddress": false,
@@ -1597,7 +1597,7 @@
         },
         {
           "invoiceId": "91223456-789a-40ab-b1d9-123456789abd",
-          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerAccountId": 1,
           "buyerNotes": "Please provide a workshop apron and recipe handout.",
           "specialtyTermsAndConditionsAccepted": true,
           "useCustomInvoiceAddress": false,
@@ -1607,7 +1607,7 @@
         },
         {
           "invoiceId": "a2334567-89ab-41bc-c2ea-23456789abcd",
-          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerAccountId": 1,
           "buyerNotes": "Corporate dinner booking for six guests.",
           "specialtyTermsAndConditionsAccepted": true,
           "useCustomInvoiceAddress": true,
@@ -1617,7 +1617,7 @@
         },
         {
           "invoiceId": "b3445678-9abc-42cd-d3fb-3456789abcde",
-          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerAccountId": 1,
           "buyerNotes": "Outdoor catering for a birthday celebration.",
           "specialtyTermsAndConditionsAccepted": true,
           "useCustomInvoiceAddress": false,
@@ -1627,7 +1627,7 @@
         },
         {
           "invoiceId": "c566789a-bcde-44ef-f51d-56789abcdef0",
-          "buyerAccountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "buyerAccountId": 2,
           "buyerNotes": "Courier booking by Chef Atelier Utrecht for a customer delivery in Utrecht.",
           "specialtyTermsAndConditionsAccepted": true,
           "useCustomInvoiceAddress": false,
@@ -1637,7 +1637,7 @@
         },
         {
           "invoiceId": "d67789ab-cdef-4501-a62e-6789abcdef01",
-          "buyerAccountId": "8b7c6d5e-1f2a-4b3c-9d8e-7f6a5b4c3d21",
+          "buyerAccountId": 2,
           "buyerNotes": "Courier booking by Maison Patisserie Amsterdam for chilled dessert delivery.",
           "specialtyTermsAndConditionsAccepted": true,
           "useCustomInvoiceAddress": false,
@@ -1647,7 +1647,7 @@
         },
         {
           "invoiceId": "c4556789-abcd-43de-e40c-456789abcdef",
-          "buyerAccountId": "d2f3a1b9-4c7e-4e91-8d5f-1a2b3c4d5e61",
+          "buyerAccountId": 1,
           "buyerNotes": "Customer will pick up the dessert box at the Amsterdam store location.",
           "specialtyTermsAndConditionsAccepted": true,
           "useCustomInvoiceAddress": false,
