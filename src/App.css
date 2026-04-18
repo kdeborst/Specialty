@@ -1,0 +1,98 @@
+/* === LOCAL FONTS === */
+@font-face {
+    font-family: 'Sora';
+    src: url('./assets/fonts/sora/Sora.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./assets/fonts/inter/Inter.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./assets/fonts/inter/Inter-Italic.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* === DESIGN TOKENS === */
+:root {
+    --font-heading: 'Sora', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --color-alice: #f4faff;
+    --color-midnight-violet: #2b061e;
+    --color--intense-cherry: #C42847;
+    --color-tangerine-dream: #f19c79;
+    --color-reddish-brown: #a44a3f;
+}
+
+
+/* === GENERAL STYLES === */
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+body {
+    background: var(--color-alice);
+    color: var(--color-midnight-violet);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+/* === TYPOGRAPHY === */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+    font-family: var(--font-heading);
+    color: var(--color-brand);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+h1 {
+    color: var(--color--intense-cherry);
+    font-size: 3rem;
+}
+
+h2 {
+    color: var(--color--midnight-violet);
+    font-size: 2rem;
+}
+
+h3 {
+    color: var(--color--intense-cherry);
+    font-size: 1.5rem;
+}
+
+p,
+a,
+button,
+input,
+label,
+span,
+li {
+    font-family: var(--font-body);
+}
+
+/* === LAYOUT CLASS === */
+.page-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
