@@ -5,7 +5,7 @@ function AppLayout({ children }) {
     return (
         <div className='app-layout'>
            <AppHeader />
-            <main className="app-layout-main">
+            <main className='app-layout-main'>
                 {children}
             </main>
         </div>

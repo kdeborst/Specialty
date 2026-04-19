@@ -1,0 +1,50 @@
+.app-header {
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid var(--color-tangerine-dream);
+}
+
+.app-header-container {
+    min-height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.app-header-left,
+.app-header-center,
+.app-header-right {
+    display: flex;
+    align-items: center;
+}
+
+.app-header-left,
+.app-header-right {
+    flex: 1;
+    gap: 12px;
+}
+
+.app-header-center {
+    justify-content: center;
+}
+
+.app-header-logo {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-intense-cherry);
+}
+
+.app-header-user,
+.app-header-language {
+    font-size: 1rem;
+    color: var(--color-midnight-violet);
+    border-radius: 20px;
+    background-color: white;
+    color: var(--color-midnight-violet);
+}
+
+.app-header-button:hover {
+    background-color: var(--color-alice);
+}
