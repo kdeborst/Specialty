@@ -1,9 +1,15 @@
 import './AppLayout.css'
+import AppHeader from '../AppHeader/AppHeader'
 
-export default function AppLayout({ children }) {
+function AppLayout({ children }) {
     return (
-        <main className="app-layout-main">
-            {children}
-        </main>
+        <div className='app-layout'>
+           <AppHeader />
+            <main className="app-layout-main">
+                {children}
+            </main>
+        </div>
     )
 }
+
+export default AppLayout;
