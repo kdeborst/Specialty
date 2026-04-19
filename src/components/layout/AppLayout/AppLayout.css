@@ -1,0 +1,8 @@
+.app-layout {
+    min-height: 100vh;
+    background-color: var(--color-alice);
+}
+
+.app-layout-main {
+    width: 100%
+}
