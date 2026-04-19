@@ -1,12 +1,10 @@
-import AppLayout from "../components/layout/AppLayout/AppLayout";
+import AppLayout from '../components/layout/AppLayout/AppLayout';
+import HeroSearch from '../components/home/HeroSearch/HeroSearch';
 
 function HomePage() {
     return (
         <AppLayout>
-            <section className='page-container'>
-                <h2>Welkom bij Specialty</h2>
-                <p>Hier komt de zoekfunctie</p>
-            </section>
+            <HeroSearch />
         </AppLayout>
     )
 }
