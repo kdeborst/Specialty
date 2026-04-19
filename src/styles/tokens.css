@@ -1,0 +1,36 @@
+/* === LOCAL FONTS === */
+@font-face {
+    font-family: 'Sora';
+    src: url('../assets/fonts/sora/Sora.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/inter/Inter.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../assets/fonts/inter/Inter-Italic.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* === DESIGN TOKENS === */
+:root {
+    --font-heading: 'Sora', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --color-alice: #f4faff;
+    --color-midnight-violet: #2b061e;
+    --color-intense-cherry: #C42847;
+    --color-tangerine-dream: #f19c79;
+    --color-reddish-brown: #a44a3f;
+}
