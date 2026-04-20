@@ -4,7 +4,7 @@ import BottomNavigation from '../../features/navigation/components/BottomNavigat
 
 function HomePage() {
     return (
-        <AppLayout>
+        <AppLayout showLogo={false}>
             <HeroSearch />
             <BottomNavigation />
         </AppLayout>

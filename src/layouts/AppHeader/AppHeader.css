@@ -1,11 +1,10 @@
 .app-header {
     width: 100%;
     background-color: white;
-    border-bottom: 1px solid var(--color-tangerine-dream);
 }
 
 .app-header-container {
-    min-height: 90px;
+    min-height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,21 +35,62 @@
     margin: 0;
     font-family: var(--font-heading);
     font-size: 2rem;
-    color: var(--color-intense-cherry);
 }
 
-.app-header-left span {
-    color: var(--color-midnight-violet);
-}
-
-.app-header-right button {
-    padding: 0.5rem 1rem;
+.app-header-circle-button,
+.app-header-cart-button {
+    width: 38px;
+    height: 38px;
     border: 1px solid var(--color-midnight-violet);
-    border-radius: 20px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--color-midnight-violet);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-header-language-button,
+.app-header-currency-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1px solid var(--color-midnight-violet);
+    border-radius: 22px;
     background-color: white;
     color: var(--color-midnight-violet);
 }
 
-.app-header-right button:hover{
-    background-color: var(--color-alice);
+.app-header-cart-button,
+.app-header-language-button {
+    border: none;
+}
+
+.app-header-cart-button {
+    position: relative;
+}
+
+.app-header-cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--color-intense-cherry);
+    color: white;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-header-circle-button:hover,
+.app-header-cart-button:hover,
+.app-header-language-button:hover,
+.app-header-currency-button:hover {
+    background-color: var(--color-intense-cherry);
+    color: white;
+    border: none
 }
