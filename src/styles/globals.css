@@ -3,7 +3,7 @@
 
 /* === GENERAL STYLES === */
 body {
-    background: var(--color-alice);
+    background: white;
     color: var(--color-midnight-violet);
     font-family: var(--font-body);
     line-height: 1.5;
@@ -28,7 +28,7 @@ h1 {
 }
 
 h2 {
-    color: var(--color--midnight-violet);
+    color: var(--color-midnight-violet);
     font-size: 2rem;
 }
 
@@ -48,7 +48,8 @@ li {
 
 /* === LAYOUT CLASS === */
 .page-container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding-inline: 24px;
 }
