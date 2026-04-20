@@ -1,15 +1,14 @@
 .bottom-navigation {
     width: 100%;
     background-color: white;
-    border-top: 1px solid var(--color-tangerine-dream);
-    margin-top: 40px;
+    margin-top: 70px;
 }
 
 .bottom-navigation-container {
-    min-height: 70px;
+    min-height: 58px;
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 28px;
     flex-wrap: wrap;
 }
 
@@ -17,6 +16,7 @@
     color: var(--color-midnight-violet);
     text-decoration: none;
     font-family: var(--font-body);
+    font-size: 0.95rem
 }
 
 .bottom-navigation-link:hover {
