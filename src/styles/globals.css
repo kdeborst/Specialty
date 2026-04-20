@@ -3,7 +3,7 @@
 
 /* === GENERAL STYLES === */
 body {
-    background: var(--color-alice);
+    background: white;
     color: var(--color-midnight-violet);
     font-family: var(--font-body);
     line-height: 1.5;

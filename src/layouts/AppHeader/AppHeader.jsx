@@ -1,5 +1,5 @@
 import './AppHeader.css';
-import { User, Globe, ShoppingCart, Wallet, Grid3x3 } from 'lucide-react'
+import { User, Globe, ShoppingCart, Wallet, Grid3x3 } from 'lucide-react';
 
 function AppHeader({ showLogo }) {
     return (
