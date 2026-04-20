@@ -1,7 +1,6 @@
 .bottom-navigation {
     width: 100%;
     background-color: white;
-    margin-top: 70px;
 }
 
 .bottom-navigation-container {
@@ -9,13 +8,13 @@
     display: flex;
     align-items: center;
     gap: 28px;
-    flex-wrap: wrap;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 .bottom-navigation-link {
     color: var(--color-midnight-violet);
     text-decoration: none;
-    font-family: var(--font-body);
     font-size: 0.95rem
 }
 
@@ -32,4 +31,16 @@
 
 .bottom-navigation-link-right {
     margin-left: auto;
+}
+
+@media (max-width: 640px) {
+    .bottom-navigation-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    .bottom-navigation-link-right {
+        margin-left: auto;
+    }
 }

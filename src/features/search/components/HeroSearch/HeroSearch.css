@@ -1,18 +1,20 @@
 .hero-search {
-    padding: 120px 600px;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    padding: 48px 24px;
 }
 
 .hero-search-container {
-    max-width: 900px;
+    width: 100%;
+    max-width: 760px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
     text-align: center;
-    align-items: center;
 }
 
 .hero-search-title-row {
-    display: flex;
+    display: inline-flex;
     align-items: flex-start;
     gap: 6px;
     margin-bottom: 16px;
@@ -21,7 +23,7 @@
 .hero-search-title-row-title {
     margin: 0;
     color: var(--color-intense-cherry);
-    font-size: 3.8rem;
+    font-size: clamp(2.5rem, 7vw, 3.8rem);
 }
 
 .hero-search-title-row-icon {
@@ -29,32 +31,29 @@
     color: var(--color-midnight-violet);
 }
 
-.hero-search-input-wrapper {
-    width: 100%;
-    height: 44px;
-    padding: 0 14px;
-    border-radius: 24px;
-    background-color: #eeeeee;
-    display: flex;
-    align-items: center;
-    gap: 10px;    
-}
-
 .hero-search-input-row {
     margin-bottom: 18px;
-    display: flex;
+}
+
+.hero-search-input-wrapper {
+    width: 100%;
+    min-height: 52px;
+    box-sizing: border-box;
+    padding: 6px 8px 6px 14px;
+    border-radius: 26px;
+    background-color: #eeeeee;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .hero-search-input-icon {
     color: var(--color-midnight-violet);
-    flex-shrink: 0;
 }
 
 .hero-search-input {
+    min-width: 0;
     width: 100%;
     border: none;
     outline: none;
@@ -68,34 +67,53 @@
 }
 
 .hero-search-mic-button,
+.hero-search-grid-button,
+.hero-search-ai-button,
+.hero-search-category-button,
+.hero-search-find-button {
+    cursor: pointer;
+}
+
+.hero-search-mic-button,
 .hero-search-grid-button {
     width: 40px;
     height: 40px;
+    padding: 0px;
     border: none;
     border-radius: 50%;
     background-color: transparent;
     color: var(--color-midnight-violet);
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
+    line-height: 0;
+}
+
+.hero-search-mic-button svg,
+.hero-search-grid-button svg,
+.hero-search-ai-button svg {
+    display: block;
+    flex-shrink: 0;
 }
 
 .hero-search-ai-button {
-    height: 40px;
-    padding: 0 16px;
+    min-width: 108px;
+    min-height: 40px;
+    padding: 0 14px;
     border: 1px solid var(--color-midnight-violet);
     border-radius: 22px;
     background-color: transparent;
     color: var(--color-midnight-violet);
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
+    white-space: nowrap;
 }
 
 .hero-search-categories-row {
     margin-bottom: 26px;
     display: flex;
-    align-items: center;
     justify-content: center;
     gap: 10px;
     flex-wrap: wrap;
@@ -107,6 +125,11 @@
     border-radius: 22px;
     background-color: white;
     color: var(--color-midnight-violet);
+}
+
+.hero-search-action {
+    display: flex;
+    justify-content: center;
 }
 
 .hero-search-find-button {
@@ -128,4 +151,61 @@
 .hero-search-find-button:hover {
     background-color: var(--color-intense-cherry);
     color: white;
+}
+
+.hero-search-input-wrapper:focus-within {
+    outline: 2px solid var(--color-intense-cherry);
+    outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+    .hero-search {
+        padding: 32px 16px 40px;
+    }
+
+    .hero-search-input-wrapper {
+        min-height: 50px;
+        padding-left: 12px;
+        gap: 6px;
+    }
+
+    .hero-search-ai-button {
+        min-width: 96px;
+        padding: 0 12px;
+    }
+
+    .hero-search-find-button {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-search-title-row {
+        align-items: center;
+    }
+
+    .hero-search-title-row-icon {
+        margin-top: 0;
+    }
+
+    .hero-search-mic-button,
+    .hero-search-grid-button {
+        width: 36px;
+        height: 36px;
+    }
+
+    .hero-search-ai-button {
+        min-width: 40px;
+        width: 40px;
+        margin: 0;
+    }
+
+    .hero-search-ai-button span {
+        display: none;
+    }
+
+    .hero-search-category-button {
+        padding-inline: 14px
+    }
 }

@@ -5,25 +5,29 @@
 
 .app-header-container {
     min-height: 70px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
     align-items: center;
-}
-
-.app-header-left,
-.app-header-center,
-.app-header-right {
-    display: flex;
-    align-items: center;
+    gap: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
 }
 
 .app-header-left,
 .app-header-right {
-    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
     gap: 12px;
 }
 
+.app-header-left {
+    justify-content: flex-start;
+}
+
 .app-header-center {
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -33,20 +37,29 @@
 
 .app-header-logo {
     margin: 0;
-    font-family: var(--font-heading);
     font-size: 2rem;
+}
+
+.app-header-circle-button,
+.app-header-cart-button,
+.app-header-language-button,
+.app-header-currency-button {
+    border: none;
+    background-color: white;
+    color: var(--color-midnight-violet);
+    cursor: pointer;
 }
 
 .app-header-circle-button,
 .app-header-cart-button {
     width: 38px;
     height: 38px;
+    padding: 0;
     border-radius: 50%;
-    background-color: white;
-    color: var(--color-midnight-violet);
-    display: flex;
-    justify-content: center;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    line-height: 0;
 }
 
 .app-header-circle-button {
@@ -56,19 +69,23 @@
 
 .app-header-language-button,
 .app-header-currency-button {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    min-height: 38px;
     padding: 8px 14px;
     border-radius: 22px;
-    background-color: white;
-    color: var(--color-midnight-violet);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    line-height: 1;
+    white-space: nowrap;
 }
 
-.app-header-cart-button,
-.app-header-language-button,
-.app-header-currency-button {
-    border: none;
+.app-header-circle-button svg,
+.app-header-cart-button svg,
+.app-header-language-button svg,
+.app-header-currency-button svg {
+    display: block;
+    flex-shrink: 0;
 }
 
 .app-header-cart-button {
@@ -85,7 +102,7 @@
     background-color: var(--color-intense-cherry);
     color: white;
     font-size: 0.7rem;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
 }
@@ -96,4 +113,28 @@
 .app-header-currency-button:hover {
     background-color: var(--color-intense-cherry);
     color: white;
+}
+
+@media (max-width: 640px) {
+    .app-header-container {
+        gap: 10px
+    }
+
+    .app-header-left,
+    .app-header-right {
+        gap: 8px;
+    }
+
+    .app-header-language-button,
+    .app-header-currency-button {
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .app-header-language-button,
+    .app-header-currency-button {
+        padding: 8px 10px;
+        gap: 6px;
+    }
 }
