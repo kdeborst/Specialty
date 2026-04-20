@@ -36,7 +36,7 @@ function HeroSearch() {
                     </button>
                 </div>
                 <div className='hero-search-action'>
-                    <button className='hero-search-find-button'>Zoek</button>
+                    <button className='hero-search-find-button'>Zoeken</button>
                 </div>
             </div>
         </section>

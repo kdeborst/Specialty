@@ -38,7 +38,6 @@
 .hero-search-input-wrapper {
     width: 100%;
     min-height: 52px;
-    box-sizing: border-box;
     padding: 6px 8px 6px 14px;
     border-radius: 26px;
     background-color: #eeeeee;

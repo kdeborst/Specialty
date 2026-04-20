@@ -8,8 +8,7 @@
     display: flex;
     align-items: center;
     gap: 28px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-block: 12px;
 }
 
 .bottom-navigation-link {
@@ -41,6 +40,6 @@
     }
 
     .bottom-navigation-link-right {
-        margin-left: auto;
+        margin-left: 0;
     }
 }
