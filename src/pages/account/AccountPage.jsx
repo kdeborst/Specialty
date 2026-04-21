@@ -1,8 +1,17 @@
+import AppLayout from '../../layouts/AppLayout/AppLayout';
+import AuthSplitSection from '../../features/auth/components/AuthSplitSection/AuthSplitsection';
+
 import './AccountPage.css';
 
 function AccountPage () {
     return(
-        <h1>AccountPage</h1>
+        <AppLayout showLogo={false}>
+            <section className="account-page">
+                <div className="account-page-containers">
+                    <AuthSplitSection />
+                </div>
+            </section>
+        </AppLayout>
     )
 }
 
