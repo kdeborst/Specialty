@@ -1,0 +1,30 @@
+.auth-split-section {
+    width: 100%;
+}
+
+.auth-split-section-mobile-tabs {
+    display: none;
+}
+
+.auth-split-section-desktop {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 720px;
+}
+
+.auth-split-section-panel {
+    background-color: white;
+}
+
+.auth-split-section-panel-register {
+    background: linear-gradient(
+        135deg,
+        var(--color-midnight-violet),
+        var(--color-intense-cherry)
+    );
+    color: white;
+}
+
+.auth-split-section-mobile {
+    display: none;
+}
