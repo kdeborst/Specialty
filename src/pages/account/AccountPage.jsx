@@ -16,7 +16,10 @@ function AccountPage () {
                     <AuthSplitSection 
                         activeTab={activeTab}
                         loginContent={
-                            <LoginForm />
+                            <LoginForm 
+                                title='Aanmelden'
+                                subtitle='Voer je gegevens in'
+                            />
                         }
                     />
                 </div>
