@@ -8,6 +8,24 @@ import './AccountPage.css';
 
 function AccountPage () {
     const [activeTab, setActiveTab] = useState('login');
+    const [loginData, setLoginData] = useState({
+        email: '',
+        password: ''
+    })
+
+    function handleLoginInputChange(event) {
+        const { name, value } = event.target;
+
+        setLoginData((previousValue) => ({
+            ...previousValue,
+            [name]: value
+        }));
+    }
+
+    function handleLoginSubmit(event) {
+        event.preventDefault();
+        console.log('Login form submitted:', loginData)
+    }
     
     return(
         <AppLayout showLogo={false}>
@@ -19,6 +37,9 @@ function AccountPage () {
                             <LoginForm 
                                 title='Aanmelden'
                                 subtitle='Voer je gegevens in'
+                                formData={loginData}
+                                onInputChange={handleLoginInputChange}
+                                onSubmit={handleLoginSubmit}
                             />
                         }
                     />
