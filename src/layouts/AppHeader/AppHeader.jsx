@@ -1,12 +1,17 @@
 import './AppHeader.css';
 import { User, Globe, ShoppingCart, Wallet, Grid3x3 } from 'lucide-react';
 
-function AppHeader({ showLogo }) {
+function AppHeader({ showLogo, onAccountClick }) {
     return (
         <header className='app-header'>
             <div className='page-container app-header-container'>
                 <div className='app-header-left'>
-                    <button className='app-header-circle-button' aria-label='Account'>
+                    <button 
+                        type='button'
+                        onClick={onAccountClick}
+                        className='app-header-circle-button'
+                        aria-label='Login of registreer account'
+                    >
                         <User size={18}/>
                     </button>
                     <button className='app-header-language-button' aria-label='Taal'>
