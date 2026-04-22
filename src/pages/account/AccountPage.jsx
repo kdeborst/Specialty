@@ -4,6 +4,8 @@ import AppLayout from '../../layouts/AppLayout/AppLayout';
 import AuthSplitSection from '../../features/auth/components/AuthSplitSection/AuthSplitsection';
 import LoginForm from '../../features/auth/components/LoginForm/LoginForm';
 
+import { loginUser } from '../../features/auth/services/authService';
+
 import './AccountPage.css';
 
 function AccountPage () {
@@ -22,9 +24,15 @@ function AccountPage () {
         }));
     }
 
-    function handleLoginSubmit(event) {
+    async function handleLoginSubmit(event) {
         event.preventDefault();
-        console.log('Login form submitted:', loginData)
+        
+        try {
+            const data = await loginUser(loginData);
+            console.log('Login success:', data);
+        } catch (error) {
+            console.log('Login error:', error);
+        }
     }
     
     return(
