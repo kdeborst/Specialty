@@ -2,7 +2,8 @@ import './AuthSplitSection.css';
 
 function AuthSplitSection({
     activeTab,
-    loginContent
+    loginContent,
+    registerContent
 }) {
     return (
         <section className='auth-split-section'>
@@ -19,7 +20,9 @@ function AuthSplitSection({
                 <div className='auth-split-section-panel auth-split-section-panel-login'>
                     { loginContent }
                 </div>
-                <div className='auth-split-section-panel auth-split-section-panel-register'></div>
+                <div className='auth-split-section-panel auth-split-section-panel-register'>
+                    { registerContent }
+                </div>
             </div>
             <div className='auth-split-section-mobile'></div>
         </section>

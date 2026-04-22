@@ -50,6 +50,7 @@ function AccountPage () {
                                 onSubmit={handleLoginSubmit}
                             />
                         }
+                        registerContent
                     />
                 </div>
             </section>
