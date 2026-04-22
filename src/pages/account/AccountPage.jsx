@@ -3,6 +3,7 @@ import { useState } from 'react';
 import AppLayout from '../../layouts/AppLayout/AppLayout';
 import AuthSplitSection from '../../features/auth/components/AuthSplitSection/AuthSplitsection';
 import LoginForm from '../../features/auth/components/LoginForm/LoginForm';
+import RegisterPanel from '../../features/auth/components/RegisterPanel/RegisterPanel';
 
 import { loginUser } from '../../features/auth/services/authService';
 
@@ -50,7 +51,13 @@ function AccountPage () {
                                 onSubmit={handleLoginSubmit}
                             />
                         }
-                        registerContent
+                        registerContent={
+                            <RegisterPanel 
+                                title='Registreren'
+                                subtitle='Nog geen account? Registreer hieronder!'
+                                buttonText='Registreer'
+                            />
+                        }
                     />
                 </div>
             </section>
