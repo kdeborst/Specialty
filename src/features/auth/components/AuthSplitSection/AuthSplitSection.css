@@ -13,6 +13,10 @@
 }
 
 .auth-split-section-panel {
+    min-height: 720px;
+}
+
+.auth-split-section-panel-login {
     background-color: white;
 }
 

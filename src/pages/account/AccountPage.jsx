@@ -42,6 +42,7 @@ function AccountPage () {
                 <div className='account-page-container'>
                     <AuthSplitSection 
                         activeTab={activeTab}
+                        onTabChange={setActiveTab}
                         loginContent={
                             <LoginForm 
                                 title='Aanmelden'

@@ -2,6 +2,7 @@ import './AuthSplitSection.css';
 
 function AuthSplitSection({
     activeTab,
+    onTabChange,
     loginContent,
     registerContent
 }) {
@@ -11,6 +12,7 @@ function AuthSplitSection({
                 <button 
                     type='button'
                     className={`auth-split-section-tab ${ activeTab === 'login' ? 'is-active' : '' }`}
+                    onClick={() => onTabChange('login')}
                 >
                     Aanmelden
                 </button>
@@ -24,7 +26,9 @@ function AuthSplitSection({
                     { registerContent }
                 </div>
             </div>
-            <div className='auth-split-section-mobile'></div>
+            <div className='auth-split-section-mobile'>
+                { activeTab === 'login' ? loginContent : registerContent }
+            </div>
         </section>
     )
 }
