@@ -39,22 +39,6 @@
     font-size: 2rem;
 }
 
-.app-header__cart-badge {
-    position: absolute;
-    top: -6px;
-    right: -4px;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: white;
-    color: var(--color-intense-cherry);
-    font-size: 0.7rem;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid var(--color-intense-cherry);
-}
-
 @media (max-width: 640px) {
     .app-header__container {
         gap: 10px
@@ -62,6 +46,12 @@
 
     .app-header__left,
     .app-header__right {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 420px) {
+    .app-header__container {
         gap: 8px;
     }
 }

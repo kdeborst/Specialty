@@ -10,7 +10,6 @@ function AppHeader({ showLogo, onAccountClick }) {
             <div className={`page-container ${styles["app-header__container"]}`}>
                 <div className={styles["app-header__left"]}>
                     <Button 
-                        shape='icon'
                         appearance='secondary'
                         bordered={ true }
                         icon={ User }
@@ -35,13 +34,12 @@ function AppHeader({ showLogo, onAccountClick }) {
                 </div>
                 <div className={styles["app-header__right"]}>
                     <Button
-                        shape='icon'
                         appearance='secondary'
                         icon={ ShoppingCart }
                         iconProps={{ size: 18 }}
+                        badge='2'
                         aria-label='Winkelwagen'
                     >
-                        <span className={styles["app-header__cart-badge"]}>2</span>
                     </Button>
                     <Button
                         shape='pill'

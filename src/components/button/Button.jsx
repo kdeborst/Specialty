@@ -5,6 +5,7 @@ function Button({
     icon: Icon = null,
     iconProps = {},
     iconPosition = 'start',
+    badge = null,
     type = 'button',
     shape = 'auto',
     appearance = 'secondary',
@@ -18,6 +19,7 @@ function Button({
 }) {
     const hasLabel = Boolean(children);
     const hasIcon = Boolean(Icon);
+    const hasBadge = badge !== null && badge !== undefined && badge !== '';
     const isIconOnly = hasIcon && !hasLabel;
 
     const resolvedShape = shape === 'auto' ? (isIconOnly ? 'icon' : 'pill') : shape;
@@ -28,19 +30,15 @@ function Button({
         styles[`button--${appearance}`],
         styles[`button--${direction}`],
         bordered ? styles["button--bordered"] : '',
+        iconFramed ? styles["button--icon-framed"] : '',
         fullWidth ? styles["button--full-width"] : '',
         disabled ? styles["button--disabled"] : '',
         isIconOnly ? styles["button--icon-only"] : '',
         className
     ].filter(Boolean).join(' ');
 
-    const iconClassNames = [
-        styles["button__icon"],
-        iconFramed ? styles["button__icon--framed"] : ''
-    ].filter(Boolean).join(' ');
-
     const iconNode = hasIcon ? (
-        <span className={iconClassNames}>
+        <span className={"button__icon"}>
             <Icon
                 { ...iconProps }
                 className={styles["button__svg"]}
@@ -66,6 +64,17 @@ function Button({
 
                 { hasIcon && iconPosition === 'end' && iconNode }
             </span>
+
+            {
+                hasBadge && (
+                    <span
+                        className={styles["button__badge"]}
+                        aria-hidden='true'
+                    >
+                        { badge }
+                    </span>
+                )
+            }
         </button>
     );
 }
