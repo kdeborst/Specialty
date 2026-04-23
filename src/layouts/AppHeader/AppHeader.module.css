@@ -1,0 +1,67 @@
+.app-header {
+    width: 100%;
+    background-color: white;
+}
+
+.app-header__container {
+    min-height: 70px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    padding-block: 12px;
+}
+
+.app-header__left,
+.app-header__right {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.app-header__left {
+    justify-content: flex-start;
+}
+
+.app-header__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-header__right {
+    justify-content: flex-end;
+}
+
+.app-header__logo {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.app-header__cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    color: var(--color-intense-cherry);
+    font-size: 0.7rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-intense-cherry);
+}
+
+@media (max-width: 640px) {
+    .app-header__container {
+        gap: 10px
+    }
+
+    .app-header__left,
+    .app-header__right {
+        gap: 8px;
+    }
+}
