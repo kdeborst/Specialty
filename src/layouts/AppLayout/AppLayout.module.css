@@ -1,0 +1,12 @@
+.app-layout {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.app-layout__main {
+    min-height: 0;
+    width: 100%;
+    display: grid;
+}

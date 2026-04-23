@@ -1,4 +1,5 @@
-import './AppLayout.css'
+import styles from './AppLayout.module.css'
+
 import AppHeader from '../AppHeader/AppHeader'
 
 function AppLayout({ 
@@ -7,13 +8,13 @@ function AppLayout({
     onAccountClick
 }) {
     return (
-        <div className='app-layout'>
+        <div className={ styles["app-layout"] }>
            <AppHeader 
-                showLogo={showLogo}
-                onAccountClick={onAccountClick} 
+                showLogo={ showLogo }
+                onAccountClick={ onAccountClick } 
             />
-            <main className='app-layout-main'>
-                {children}
+            <main className={ styles["app-layout__main"] }>
+                { children }
             </main>
         </div>
     )
