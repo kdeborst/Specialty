@@ -1,0 +1,10 @@
+.account-page {
+    min-height: 100vh;
+    padding: 40px 24px;
+    background-color: white;
+}
+
+.account-page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}

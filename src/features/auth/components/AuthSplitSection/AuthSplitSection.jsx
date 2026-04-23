@@ -1,0 +1,36 @@
+import './AuthSplitSection.css';
+
+function AuthSplitSection({
+    activeTab,
+    onTabChange,
+    loginContent,
+    registerContent
+}) {
+    return (
+        <section className='auth-split-section'>
+            <div className='auth-split-section-mobile-tabs'>
+                <button 
+                    type='button'
+                    className={`auth-split-section-tab ${ activeTab === 'login' ? 'is-active' : '' }`}
+                    onClick={() => onTabChange('login')}
+                >
+                    Aanmelden
+                </button>
+                <button type='button' className='auth-split-section-tab'>Registreren</button>
+            </div>
+            <div className='auth-split-section-desktop'>
+                <div className='auth-split-section-panel auth-split-section-panel-login'>
+                    { loginContent }
+                </div>
+                <div className='auth-split-section-panel auth-split-section-panel-register'>
+                    { registerContent }
+                </div>
+            </div>
+            <div className='auth-split-section-mobile'>
+                { activeTab === 'login' ? loginContent : registerContent }
+            </div>
+        </section>
+    )
+}
+
+export default AuthSplitSection;

@@ -1,12 +1,20 @@
-import './AppLayout.css'
+import styles from './AppLayout.module.css'
+
 import AppHeader from '../AppHeader/AppHeader'
 
-function AppLayout({ children, showLogo = true }) {
+function AppLayout({ 
+    children,
+    showLogo = true,
+    onAccountClick
+}) {
     return (
-        <div className='app-layout'>
-           <AppHeader showLogo={showLogo} />
-            <main className='app-layout-main'>
-                {children}
+        <div className={ styles["app-layout"] }>
+           <AppHeader 
+                showLogo={ showLogo }
+                onAccountClick={ onAccountClick } 
+            />
+            <main className={ styles["app-layout__main"] }>
+                { children }
             </main>
         </div>
     )
